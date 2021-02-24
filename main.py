@@ -4,7 +4,7 @@ import requests
 import json
 import random
 from replit import db
-
+from keep_alive import keep_alive
 client = discord.Client()
 
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"] #list of sad words
@@ -89,4 +89,6 @@ async def on_message(message): #Trigger when a message is received
     else:
       db["responding"] = False
       await message.channel.send("Responding is off.")
+
+keep_alive()
 client.run(os.getenv('TOKEN')) #run the bot
